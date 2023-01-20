@@ -6,13 +6,10 @@ public class PlayerCollision : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public PlayerMovement movement;
-
-    
-
     void OnCollisionEnter(Collision other) {
         if(other.collider.tag == "Obstacle"){
-            movement.enabled=false;
+            GetComponent<PlayerMovement>().enabled=false;
+            FindObjectOfType<GameController>().GameOver();
         }
     }
 

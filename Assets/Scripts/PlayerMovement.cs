@@ -28,5 +28,9 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKey("a")){
             rb.AddForce(-4000*Time.deltaTime, 0, 0);
         }
+
+        if(rb.position.y < -1f){
+            FindObjectOfType<GameController>().GameOver();
+        }
     }
 }
